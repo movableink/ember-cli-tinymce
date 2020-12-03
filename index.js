@@ -34,4 +34,17 @@ module.exports = {
       },
     },
   },
+
+  included(app) {
+    this._super.included(app);
+
+    const config =
+      Object.assign(defaultConfig.tinyMCE, this.project.config().tinyMCE) || {};
+    const themes = config.themes;
+
+    app.import("vendor/tinymce/tinymce.js");
+    for (let theme of themes) {
+      app.import(`vendor/tinymce/themes/${theme}/theme.js`);
+    }
+  },
 };
