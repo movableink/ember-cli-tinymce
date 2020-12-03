@@ -13,7 +13,6 @@ const tinyMCERoot = path.relative(
   ".",
   path.dirname(require.resolve("tinymce"))
 );
-console.log("ROOT", tinyMCERoot);
 
 module.exports = {
   name: "ember-cli-tinymce",
@@ -49,8 +48,10 @@ module.exports = {
       };
       if (asset.includes(".css")) opts.outputFile = `${opts.destDir}/${asset}`;
 
-      console.log("IMPORTING", path.join(tinyMCERoot, "skins", skin, asset));
-      app.import(path.join(tinyMCERoot, "skins", skin, asset), opts);
+      app.import(
+        path.join("..", "..", tinyMCERoot, "skins", skin, asset),
+        opts
+      );
     });
 
     config.themes.forEach(function (theme) {
