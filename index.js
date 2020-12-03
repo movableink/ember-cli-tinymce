@@ -11,7 +11,7 @@ var files = ["tinymce.js"];
 
 const tinyMCERoot = path.relative(
   ".",
-  path.dirname(require.resolve("tinymce"))
+  path.dirname(require.resolve("tinymce/tinymce.js"))
 );
 
 module.exports = {
