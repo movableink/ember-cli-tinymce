@@ -27,8 +27,7 @@
     "test": "ember try:each"
   },
   "dependencies": {
-    "ember-cli-babel": "^6.6.0",
-    "tinymce": "4.4.3"
+    "ember-cli-babel": "^6.6.0"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
