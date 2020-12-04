@@ -1,14 +1,14 @@
 /* eslint-env node */
-'use strict';
+"use strict";
 
-module.exports = function() {
+module.exports = function () {
   return {
     tinyMCE: {
-      load: 'cdn',
+      load: "cdn",
       version: 4.4,
-      skin: 'lightgray',
-      themes: [ 'modern' ],
-      plugins: undefined
-    }
+      skin: "lightgray",
+      themes: ["modern"],
+      plugins: ["code", "link", "textcolor", "colorpicker"],
+    },
   };
 };

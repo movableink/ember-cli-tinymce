@@ -12,22 +12,19 @@ module.exports = {
         const config =
           Object.assign(defaultConfig.tinyMCE, this.project.config().tinyMCE) ||
           {};
-        const skin = config.skin;
-        const themes = config.themes;
+        const { skin } = config;
 
         return {
           public: {
-            include: [
-              `skins/${skin}/fonts/*`,
-              `skins/${skin}/img/*`,
-              `skins/${skin}/*.css`,
-              "plugins/**/*.js",
-            ],
+            include: [`skins/${skin}/fonts/*`, `skins/${skin}/img/*`],
           },
           vendor: {
             include: [
               "tinymce.js",
-              ...themes.map((theme) => `themes/${theme}/theme.js`),
+              "themes/*/theme.js",
+              "plugins/*/plugin.js",
+              `skins/${skin}/*.css`,
+              "content.min.css",
             ],
           },
         };
@@ -40,11 +37,18 @@ module.exports = {
 
     const config =
       Object.assign(defaultConfig.tinyMCE, this.project.config().tinyMCE) || {};
-    const themes = config.themes;
+    const { skin, themes, plugins } = config;
 
     app.import("vendor/tinymce/tinymce.js");
+    app.import(`vendor/tinymce/skins/${skin}/skin.min.css`);
+    app.import("vendor/tinymce/content.min.css");
+
     for (let theme of themes) {
       app.import(`vendor/tinymce/themes/${theme}/theme.js`);
+    }
+
+    for (let plugin of plugins) {
+      app.import(`vendor/tinymce/plugins/${plugin}/plugin.js`);
     }
   },
 };
