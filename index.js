@@ -16,7 +16,8 @@ module.exports = {
 
         return {
           public: {
-            include: [`skins/${skin}/fonts/*`, `skins/${skin}/img/*`],
+            srcDir: `skins/${skin}`,
+            include: [`fonts/*`, `img/*`],
           },
           vendor: {
             include: [
