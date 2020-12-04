@@ -24,8 +24,8 @@ module.exports = {
               "tinymce.js",
               "themes/*/theme.js",
               "plugins/*/plugin.js",
-              `skins/${skin}/*.css`,
-              "content.min.css",
+              `skins/${skin}/skin.min.css`,
+              `skins/${skin}/content.min.css`,
             ],
           },
         };
